@@ -14,7 +14,7 @@ struct Point{
 float distance(Point A, Point B);
 float perimeter(Point Array[4]);
 float area(Point Array[4]);
-QString parseIntoTextFile(Point Array[4]);
+QString writeIntoTextFile(Point Array[4]);
 
 int main()
 {
@@ -56,8 +56,8 @@ int main()
     QFile txt("results.txt");
     if (txt.open(QFile::WriteOnly | QFile::Truncate)) {
         QTextStream writeStream(&txt);
-        writeStream << parseIntoTextFile(quadOne);
-        writeStream << parseIntoTextFile(quadTwo);
+        writeStream << writeIntoTextFile(quadOne);
+        writeStream << writeIntoTextFile(quadTwo);
         txt.close();
         std:: cout << "Done. Check the \"results.txt\" file in project's bulid directory.";
     }
@@ -95,7 +95,7 @@ float area(Point Array[4]) {
     return area;
 }
 
-QString parseIntoTextFile(Point Array[4]) {
+QString writeIntoTextFile(Point Array[4]) {
     QString text, temp;
     Point current;
 
